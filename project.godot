@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="actionrpg"
-run/main_scene="res://world.tscn"
+run/main_scene="res://World/Title_screen.tscn"
 
 [autoload]
 
