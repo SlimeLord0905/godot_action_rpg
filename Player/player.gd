@@ -99,7 +99,7 @@ func attaque_bouleDeFeu():
 		get_tree().current_scene.add_child(boule)
 		boule.global_position = self.global_position
 		
-		var Brotation = self.global_position.direction_to(get_global_mouse_position()).angle()
+		var Brotation = self.global_position.direction_to(get_global_mouse_position()).angle() 
 		boule.rotation = Brotation
 		BTimer.start()
 

@@ -7,21 +7,21 @@
 [sub_resource type="CapsuleShape2D" id=1]
 height = 9.70432
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
 region = Rect2( 100, 0, 100, 100 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
 region = Rect2( 200, 0, 100, 100 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
 region = Rect2( 300, 0, 100, 100 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -41,7 +41,6 @@ one_way_collision_margin = 0.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 5 )
-frame = 2
 playing = true
 flip_v = true
 
