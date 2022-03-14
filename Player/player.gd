@@ -27,7 +27,7 @@ onready var BTimer = $BTimer
 
 
 func _ready():
-	stats.connect("no_health",self,"queue_free")
+	stats.connect("no_health",self,"mourir")
 	animation_tree.active = true
 	swordhitbox.knockback_vector = roll_vector
 
@@ -107,3 +107,8 @@ func _on_hurtbox_area_entered(area):
 	stats.health -= 1
 	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
+	
+func mourir():
+	get_tree().reload_current_scene()
+	stats.health = 4;
+	get_tree().change_scene("res://World/Game_over_screen.tscn")
