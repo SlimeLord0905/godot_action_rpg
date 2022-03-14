@@ -11,10 +11,6 @@ func set_hearts(value):
 	hearts = clamp(value,0,max_heart)
 	if heartui_full != null:
 		heartui_full.rect_size.x = hearts * 15
-	if hearts == 0:
-		hearts = 4
-
-
 		
 func set_max_hearts(value):
 	max_heart = max(value, 1)
