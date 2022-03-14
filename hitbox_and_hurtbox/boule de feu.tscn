@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://hitbox_and_hurtbox/hitbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Effects/fierBall.png" type="Texture" id=2]
+[ext_resource path="res://hitbox_and_hurtbox/boule de feu.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 9.70432
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 100, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 200, 0, 100, 100 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 300, 0, 100, 100 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="boule de feu" instance=ExtResource( 1 )]
+collision_mask = 2147483656
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( -2.252, 3.203 )
+rotation = -1.5708
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+frame = 2
+playing = true
+flip_v = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
+position = Vector2( -2.43408, 2.76932 )
+scale = Vector2( 0.89908, 0.66147 )
+[connection signal="area_entered" from="." to="." method="_on_boule_de_feu_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_boule_de_feu_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

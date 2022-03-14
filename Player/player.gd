@@ -5,6 +5,8 @@ export var ROLL_SPEED = 100
 export var ACCELERATION = 500
 export var FRICTION = 500
 
+export (PackedScene) var boule_de_feu: PackedScene= preload("res://hitbox_and_hurtbox/boule de feu.tscn")
+
 enum {
 	MOVE,
 	ROLL,
@@ -21,12 +23,13 @@ onready var animation_tree = $AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var swordhitbox = $itboxpivot/sword_hitbox
 onready var hurtbox = $hurtbox
+onready var BTimer = $BTimer
+
 
 func _ready():
-	stats.connect("no_health",self,"mourir")
+	stats.connect("no_health",self,"queue_free")
 	animation_tree.active = true
 	swordhitbox.knockback_vector = roll_vector
-		
 
 func _physics_process(delta):
 	
@@ -37,6 +40,8 @@ func _physics_process(delta):
 			roll_state(delta)
 		ATTACK:
 			attack_state(delta)
+			
+	
 	
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -63,6 +68,10 @@ func move_state(delta):
 		state = ATTACK
 	if Input.is_action_just_pressed("roll"):
 		state = ROLL
+		
+	if Input.is_action_just_pressed("boule_de_feu") and BTimer.is_stopped():
+		
+		attaque_bouleDeFeu()
 
 func roll_state(delta):
 	velocity = roll_vector*ROLL_SPEED
@@ -82,17 +91,19 @@ func roll_animation_finished():
 
 func attack_animation_finish():
 	state = MOVE
-	
 
+func attaque_bouleDeFeu():
+	
+	if boule_de_feu:
+		var boule = boule_de_feu.instance()
+		get_tree().current_scene.add_child(boule)
+		boule.global_position = self.global_position
+		
+		var Brotation = self.global_position.direction_to(get_global_mouse_position()).angle()
+		boule.rotation = Brotation
+		BTimer.start()
 
 func _on_hurtbox_area_entered(area):
 	stats.health -= 1
 	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
-func mourir():
-	get_tree().reload_current_scene()
-	stats.health = 4;
-	get_tree().change_scene("res://World/Game_over_screen.tscn")
-	
-
-

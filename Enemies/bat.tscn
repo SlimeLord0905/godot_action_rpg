@@ -83,7 +83,7 @@ position = Vector2( 0, -0.794598 )
 
 [node name="CollisionShape2D" parent="player_detection" index="0"]
 modulate = Color( 1, 1, 1, 0.333333 )
-position = Vector2( 0.264862, -12.7136 )
+position = Vector2( -0.484299, -9.34241 )
 shape = SubResource( 9 )
 
 [node name="hitbox" parent="." instance=ExtResource( 7 )]
