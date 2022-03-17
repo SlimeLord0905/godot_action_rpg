@@ -90,6 +90,7 @@ func _physics_process(delta):
 				state = IDLE
 		DEAD:
 			animation_state.travel("mort")
+			velocity = Vector2.ZERO
 	velocity = move_and_slide(velocity)	
 		
 func seek_player():

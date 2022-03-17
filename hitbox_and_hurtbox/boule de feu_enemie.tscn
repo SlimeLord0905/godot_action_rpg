@@ -28,7 +28,7 @@ animations = [ {
 } ]
 
 [node name="boule de feu" instance=ExtResource( 1 )]
-collision_mask = 2147483655
+collision_mask = 2147483653
 script = ExtResource( 3 )
 damage = 2
 
@@ -42,7 +42,6 @@ one_way_collision_margin = 0.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 flip_v = true
 

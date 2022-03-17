@@ -38,7 +38,7 @@ func _physics_process(delta):
 				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta )
 			if player == null:
 				state = IDLE
-			sprite.flip_h = velocity.x < 0
+
 	velocity = move_and_slide(velocity)	
 		
 func seek_player():

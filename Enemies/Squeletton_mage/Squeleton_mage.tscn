@@ -1,9 +1,8 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Enemies/Squeletton_mage/Skeleton Mage.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Squeletton_mage/Squeleton_mage.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/player_detection.tscn" type="PackedScene" id=3]
-[ext_resource path="res://hitbox_and_hurtbox/hitbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hitbox_and_hurtbox/hurtbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemies/Squeletton_mage/Node.gd" type="Script" id=6]
 [ext_resource path="res://Enemies/player_detection2.gd" type="Script" id=7]
@@ -348,10 +347,6 @@ graph_offset = Vector2( 0, 62.8586 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=38]
 
-[sub_resource type="CapsuleShape2D" id=39]
-radius = 13.097
-height = 15.3524
-
 [sub_resource type="CapsuleShape2D" id=40]
 radius = 57.8227
 height = 11.5453
@@ -376,10 +371,9 @@ shape = SubResource( 1 )
 position = Vector2( 0.0582905, -0.0655624 )
 scale = Vector2( 0.819485, 1.00012 )
 texture = ExtResource( 1 )
-flip_h = true
 vframes = 5
 hframes = 21
-frame = 40
+frame = 41
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/Marcher_droite = SubResource( 2 )
@@ -398,16 +392,6 @@ parameters/playback = SubResource( 38 )
 parameters/attaque/blend_position = Vector2( -0.00276661, -0.0172414 )
 parameters/idle/blend_position = Vector2( 0.000340104, 0 )
 parameters/mouvement/blend_position = Vector2( -0.995363, 0 )
-
-[node name="hitbox" parent="." instance=ExtResource( 4 )]
-visible = false
-position = Vector2( -0.594601, 2.08112 )
-collision_mask = 4
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
-visible = false
-position = Vector2( 2.03293, 1.32583 )
-shape = SubResource( 39 )
 
 [node name="hurtbox" parent="." instance=ExtResource( 5 )]
 visible = false
