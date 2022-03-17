@@ -10,7 +10,12 @@
 [ext_resource path="res://Enemies/bat.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/healthui.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Enemies/slime.tscn" type="PackedScene" id=10]
+<<<<<<< HEAD
+[ext_resource path="res://world.gd" type="Script" id=11]
+[ext_resource path="res://Music and Sounds/8-bit-fantasy-adventure-music idle.wav" type="AudioStream" id=12]
+=======
 [ext_resource path="res://Enemies/Squeletton_mage/Squeleton_mage.tscn" type="PackedScene" id=11]
+>>>>>>> 08ec3178009e23eb53600bfeb734258f910f7be1
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -508,9 +513,14 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 extents = Vector2( 134.447, 34.0541 )
 
 [node name="world" type="Node2D"]
+script = ExtResource( 11 )
 
 [node name="background" type="Sprite" parent="."]
+<<<<<<< HEAD
+position = Vector2( 0.933659, 12.5419 )
+=======
 position = Vector2( 6.75597, -29.7147 )
+>>>>>>> 08ec3178009e23eb53600bfeb734258f910f7be1
 scale = Vector2( 1.0125, 1.02778 )
 texture = ExtResource( 3 )
 region_enabled = true
@@ -688,6 +698,11 @@ scale = Vector2( 1.0125, 1.02778 )
 [node name="bat5" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( -43.4906, -215.924 )
 
+<<<<<<< HEAD
+[node name="idlemusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.671
+=======
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2147483649
 
@@ -695,3 +710,4 @@ collision_mask = 2147483649
 position = Vector2( 894.187, 126.076 )
 shape = SubResource( 52 )
 [connection signal="area_entered" from="Area2D" to="CanvasLayer/healthui" method="_on_Area2D_area_entered"]
+>>>>>>> 08ec3178009e23eb53600bfeb734258f910f7be1

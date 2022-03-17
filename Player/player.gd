@@ -67,6 +67,7 @@ func move_state(delta):
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
 	if Input.is_action_just_pressed("roll"):
+		$evade.play()
 		state = ROLL
 		
 	if Input.is_action_just_pressed("boule_de_feu") and BTimer.is_stopped():
@@ -74,6 +75,7 @@ func move_state(delta):
 		attaque_bouleDeFeu()
 
 func roll_state(delta):
+	
 	velocity = roll_vector*ROLL_SPEED
 	animation_state.travel("roll")
 	move()
