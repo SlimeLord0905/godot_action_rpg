@@ -601,7 +601,7 @@ states/run/node = SubResource( 37 )
 states/run/position = Vector2( 743, 121 )
 transitions = [ "idle", "run", SubResource( 38 ), "run", "idle", SubResource( 39 ), "idle", "attack", SubResource( 40 ), "attack", "idle", SubResource( 41 ), "idle", "roll", SubResource( 42 ), "roll", "idle", SubResource( 43 ) ]
 start_node = "idle"
-graph_offset = Vector2( 0, 94.199 )
+graph_offset = Vector2( -110.133, 83.3299 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=45]
 
@@ -621,7 +621,7 @@ script = ExtResource( 1 )
 position = Vector2( -0.214138, -9.01927 )
 texture = ExtResource( 2 )
 hframes = 60
-frame = 18
+frame = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.205406, -0.0180387 )
@@ -671,6 +671,7 @@ disabled = true
 
 [node name="hurtbox" parent="." instance=ExtResource( 5 )]
 collision_layer = 4
+collision_mask = 1
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( 0.140312, -3.92862 )
@@ -680,7 +681,7 @@ shape = SubResource( 47 )
 one_shot = true
 
 [node name="BTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.825
 one_shot = true
 
 [node name="evade" type="AudioStreamPlayer" parent="."]

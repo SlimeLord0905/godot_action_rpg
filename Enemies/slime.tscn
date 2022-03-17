@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 [gd_scene load_steps=16 format=2]
+=======
+[gd_scene load_steps=21 format=2]
+>>>>>>> 08ec3178009e23eb53600bfeb734258f910f7be1
 
-[ext_resource path="res://Enemies/slime.png" type="Texture" id=1]
+[ext_resource path="res://Enemies/slime-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=2]
 [ext_resource path="res://hitbox_and_hurtbox/hurtbox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemies/bat.gd" type="Script" id=4]
+[ext_resource path="res://Enemies/slime.gd" type="Script" id=4]
 [ext_resource path="res://stats.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemies/player_detection.tscn" type="PackedScene" id=6]
 [ext_resource path="res://hitbox_and_hurtbox/hitbox.tscn" type="PackedScene" id=7]
@@ -24,15 +28,52 @@ radius = 61.0969
 radius = 6.12049
 
 [sub_resource type="AtlasTexture" id=5]
+<<<<<<< HEAD
+=======
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 1301, 901 )
+region = Rect2( 0, 0, 32, 25 )
 
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 32, 25 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 32, 25 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 32, 25 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 32, 25 )
+
+[sub_resource type="AtlasTexture" id=10]
+>>>>>>> 08ec3178009e23eb53600bfeb734258f910f7be1
+atlas = ExtResource( 1 )
+region = Rect2( 160, 0, 32, 25 )
+
+<<<<<<< HEAD
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ SubResource( 5 ) ],
+=======
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 32, 25 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 224, 0, 32, 25 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+>>>>>>> 08ec3178009e23eb53600bfeb734258f910f7be1
 "loop": true,
-"name": "fly_animation ",
-"speed": 10.0
+"name": "default",
+"speed": 5.0
 } ]
 
 [node name="slime" type="KinematicBody2D"]
@@ -52,7 +93,6 @@ position = Vector2( 0.0664367, 0.0184469 )
 shape = SubResource( 2 )
 
 [node name="stats" parent="." instance=ExtResource( 5 )]
-max_health = 2
 
 [node name="player_detection" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0, -0.794598 )
@@ -71,6 +111,7 @@ shape = SubResource( 4 )
 
 [node name="YSort" type="YSort" parent="."]
 
+<<<<<<< HEAD
 [node name="corrpse" type="AnimatedSprite" parent="."]
 position = Vector2( 0.0158444, 0.0493856 )
 scale = Vector2( 0.0068941, 0.00908302 )
@@ -79,10 +120,13 @@ animation = "fly_animation "
 playing = true
 offset = Vector2( 0, -12 )
 
+=======
+>>>>>>> 08ec3178009e23eb53600bfeb734258f910f7be1
 [node name="shadow" type="Sprite" parent="."]
 z_index = -1
 texture = ExtResource( 2 )
 
+<<<<<<< HEAD
 [node name="hurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
 attenuation = 3.24901
@@ -91,6 +135,14 @@ attenuation = 3.24901
 scale = Vector2( 1.00735, 0.933915 )
 stream = ExtResource( 9 )
 attenuation = 2.73208
+=======
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.0992086, -2.67874 )
+scale = Vector2( 0.379922, 0.452347 )
+frames = SubResource( 13 )
+frame = 2
+playing = true
+>>>>>>> 08ec3178009e23eb53600bfeb734258f910f7be1
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 

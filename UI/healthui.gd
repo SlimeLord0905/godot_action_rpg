@@ -22,3 +22,7 @@ func _ready():
 	self.hearts = PlayerStats.health
 	PlayerStats.connect("health_changed", self, "set_hearts")
 	
+
+
+func _on_Area2D_area_entered(area):
+	get_tree().change_scene("res://World/Game_over_screen.tscn")

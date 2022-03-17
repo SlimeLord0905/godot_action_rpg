@@ -57,22 +57,22 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 custom_constants/separation = 16
 
-[node name="TextureButton" type="TextureButton" parent="Sprite/MarginContainer/VBoxContainer"]
+[node name="Start_btn" type="TextureButton" parent="Sprite/MarginContainer/VBoxContainer"]
 margin_right = 553.0
 margin_bottom = 98.0
-focus_neighbour_top = NodePath("../TextureButton2")
-focus_neighbour_bottom = NodePath("../TextureButton2")
+focus_neighbour_top = NodePath("../Exit_btn")
+focus_neighbour_bottom = NodePath("../Exit_btn")
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 6 )
 texture_focused = ExtResource( 6 )
 
-[node name="TextureButton2" type="TextureButton" parent="Sprite/MarginContainer/VBoxContainer"]
+[node name="Exit_btn" type="TextureButton" parent="Sprite/MarginContainer/VBoxContainer"]
 margin_top = 114.0
 margin_right = 553.0
 margin_bottom = 191.0
-focus_neighbour_left = NodePath("../TextureButton")
-focus_neighbour_bottom = NodePath("../TextureButton")
+focus_neighbour_left = NodePath("../Start_btn")
+focus_neighbour_bottom = NodePath("../Start_btn")
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 7 )
@@ -81,6 +81,7 @@ stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+<<<<<<< HEAD
 
 [node name="swipe" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
@@ -98,3 +99,7 @@ volume_db = -14.857
 [connection signal="pressed" from="Sprite/MarginContainer/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="focus_exited" from="Sprite/MarginContainer/VBoxContainer/TextureButton2" to="." method="_on_TextureButton2_focus_exited"]
 [connection signal="pressed" from="Sprite/MarginContainer/VBoxContainer/TextureButton2" to="." method="_on_TextureButton2_pressed"]
+=======
+[connection signal="pressed" from="Sprite/MarginContainer/VBoxContainer/Start_btn" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Sprite/MarginContainer/VBoxContainer/Exit_btn" to="." method="_on_TextureButton2_pressed"]
+>>>>>>> 08ec3178009e23eb53600bfeb734258f910f7be1
