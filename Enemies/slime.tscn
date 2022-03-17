@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Enemies/slime.png" type="Texture" id=1]
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=2]
@@ -7,27 +7,29 @@
 [ext_resource path="res://stats.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemies/player_detection.tscn" type="PackedScene" id=6]
 [ext_resource path="res://hitbox_and_hurtbox/hitbox.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Music and Sounds/Hurt.wav" type="AudioStream" id=8]
+[ext_resource path="res://Music and Sounds/fhit3.wav" type="AudioStream" id=9]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 3.86659
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 5.59655
 height = 0.0
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=3]
 radius = 61.0969
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=4]
 radius = 6.12049
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 1301, 901 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
+"frames": [ SubResource( 5 ) ],
 "loop": true,
 "name": "fly_animation ",
 "speed": 10.0
@@ -39,7 +41,7 @@ collision_mask = 17
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 8
@@ -47,7 +49,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2( 0.0664367, 0.0184469 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="stats" parent="." instance=ExtResource( 5 )]
 max_health = 2
@@ -58,21 +60,21 @@ position = Vector2( 0, -0.794598 )
 [node name="CollisionShape2D" parent="player_detection" index="0"]
 modulate = Color( 1, 1, 1, 0.333333 )
 position = Vector2( 0.210197, 0.777271 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="hitbox" parent="." instance=ExtResource( 7 )]
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="hitbox" index="0"]
 position = Vector2( 0.0664447, 0.0498371 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="corrpse" type="AnimatedSprite" parent="."]
 position = Vector2( 0.0158444, 0.0493856 )
 scale = Vector2( 0.0068941, 0.00908302 )
-frames = SubResource( 2 )
+frames = SubResource( 6 )
 animation = "fly_animation "
 playing = true
 offset = Vector2( 0, -12 )
@@ -80,6 +82,15 @@ offset = Vector2( 0, -12 )
 [node name="shadow" type="Sprite" parent="."]
 z_index = -1
 texture = ExtResource( 2 )
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+attenuation = 3.24901
+
+[node name="Die" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2( 1.00735, 0.933915 )
+stream = ExtResource( 9 )
+attenuation = 2.73208
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 

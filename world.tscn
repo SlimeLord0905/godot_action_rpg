@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://World/bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Enemies/bat.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/healthui.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Enemies/slime.tscn" type="PackedScene" id=10]
+[ext_resource path="res://world.gd" type="Script" id=11]
+[ext_resource path="res://Music and Sounds/8-bit-fantasy-adventure-music idle.wav" type="AudioStream" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -504,9 +506,10 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/z_index = 0
 
 [node name="world" type="Node2D"]
+script = ExtResource( 11 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( -2.62994, 7.64193 )
+position = Vector2( 0.933659, 12.5419 )
 scale = Vector2( 1.0125, 1.02778 )
 texture = ExtResource( 3 )
 region_enabled = true
@@ -678,3 +681,7 @@ position = Vector2( 174.829, 9.60434 )
 
 [node name="bat5" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( -43.4906, -215.924 )
+
+[node name="idlemusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.671

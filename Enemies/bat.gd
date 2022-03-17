@@ -19,6 +19,7 @@ onready var detection_zone = $player_detection
 onready var sprite = $corrpse
 onready var hurtbox = $hurtbox
 
+
 var state = IDLE
 
 func _physics_process(delta):
@@ -46,12 +47,15 @@ func seek_player():
 		state = CHASE
 	
 func _on_hurtbox_area_entered(area):
+	$hurt.play()
 	stats.health -= 1
 	knockback = area.knockback_vector * 120
 	hurtbox.create_hit_effect()
 
 func _on_stats_no_health():
+	$Die.play()
 	queue_free()
 	var enemiedeatheffect = EnemiedeathEffect.instance()
 	get_parent().add_child(enemiedeatheffect)
+
 	enemiedeatheffect.position = global_position
