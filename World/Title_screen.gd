@@ -1,7 +1,6 @@
 extends Node
 
 func _ready():
-<<<<<<< HEAD
 	$idlemusic.play()
 	$Sprite/MarginContainer/VBoxContainer/TextureButton.grab_focus()
 
@@ -11,15 +10,6 @@ func _physics_process(delta):
 	
 	if $Sprite/MarginContainer/VBoxContainer/TextureButton2.is_hovered() == true:
 		$Sprite/MarginContainer/VBoxContainer/TextureButton2.grab_focus()
-=======
-	$Sprite/MarginContainer/VBoxContainer/Start_btn.grab_focus()
-
-func _physics_process(delta):
-	if $Sprite/MarginContainer/VBoxContainer/Start_btn.is_hovered() == true:
-		$Sprite/MarginContainer/VBoxContainer/Start_btn.grab_focus()
-	if $Sprite/MarginContainer/VBoxContainer/Exit_btn.is_hovered() == true:
-		$Sprite/MarginContainer/VBoxContainer/Exit_btn.grab_focus()
->>>>>>> 08ec3178009e23eb53600bfeb734258f910f7be1
 
 
 

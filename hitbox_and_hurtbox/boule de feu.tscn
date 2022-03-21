@@ -29,7 +29,7 @@ animations = [ {
 } ]
 
 [node name="boule de feu" instance=ExtResource( 1 )]
-collision_mask = 2147483657
+collision_mask = 2147483656
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]

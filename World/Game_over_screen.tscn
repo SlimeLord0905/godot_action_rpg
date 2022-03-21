@@ -32,7 +32,7 @@ margin_bottom = 291.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="btn_retour" type="TextureButton" parent="Sprite/MarginContainer/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="Sprite/MarginContainer/VBoxContainer"]
 margin_right = 385.0
 margin_bottom = 42.0
 size_flags_horizontal = 4
@@ -45,4 +45,4 @@ position = Vector2( 74.4412, 128.319 )
 scale = Vector2( 0.0459747, 0.0467953 )
 texture = ExtResource( 4 )
 centered = false
-[connection signal="pressed" from="Sprite/MarginContainer/VBoxContainer/btn_retour" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Sprite/MarginContainer/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
