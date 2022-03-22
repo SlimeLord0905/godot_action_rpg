@@ -27,6 +27,7 @@ onready var animation_state = animation_tree.get("parameters/playback")
 onready var BTimer = $BTimer
 
 
+
 var state = IDLE
 
 func _physics_process(delta):
@@ -89,6 +90,7 @@ func _physics_process(delta):
 			if player == null:
 				state = IDLE
 		DEAD:
+		
 			animation_state.travel("mort")
 			velocity = Vector2.ZERO
 	velocity = move_and_slide(velocity)	
@@ -103,6 +105,7 @@ func _on_hurtbox_area_entered(area):
 	hurtbox.create_hit_effect()
 
 func _on_Node_no_health():
+	$deathsound.play()
 	state = DEAD
 	var enemiedeatheffect = EnemiedeathEffect.instance()
 	get_parent().add_child(enemiedeatheffect)

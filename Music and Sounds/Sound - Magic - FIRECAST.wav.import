@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sound - Magic - FIRECAST.wav-a02cb95a1105f0ce7dc4885baad60ffe.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/Sound - Magic - FIRECAST.wav"
+dest_files=[ "res://.import/Sound - Magic - FIRECAST.wav-a02cb95a1105f0ce7dc4885baad60ffe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
