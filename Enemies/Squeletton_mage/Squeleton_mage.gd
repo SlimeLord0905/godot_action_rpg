@@ -25,6 +25,7 @@ onready var animation_player = $Sprite/AnimationPlayer
 onready var animation_tree = $Sprite/AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var BTimer = $BTimer
+onready var collision_box = $CollisionShape2D2
 
 
 
@@ -90,7 +91,7 @@ func _physics_process(delta):
 			if player == null:
 				state = IDLE
 		DEAD:
-		
+			collision_box.disabled = true
 			animation_state.travel("mort")
 			velocity = Vector2.ZERO
 	velocity = move_and_slide(velocity)	
