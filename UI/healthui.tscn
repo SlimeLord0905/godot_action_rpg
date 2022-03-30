@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/healthui.gd" type="Script" id=1]
 [ext_resource path="res://UI/HeartUIEmpty.png" type="Texture" id=2]
 [ext_resource path="res://UI/HeartUIFull.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.192157, 0.0666667, 0.933333, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0862745, 0.466667, 0.909804, 1 )
 
 [node name="healthui" type="Control"]
 margin_right = 61.0
@@ -22,11 +30,24 @@ __meta__ = {
 }
 
 [node name="heartui_full" type="TextureRect" parent="."]
+margin_top = 0.75
 margin_right = 59.0
-margin_bottom = 11.0
+margin_bottom = 11.75
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = 0.5
+margin_top = 13.25
+margin_right = 73.5
+margin_bottom = 22.25
+custom_styles/fg = SubResource( 1 )
+value = 100.0
+percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }

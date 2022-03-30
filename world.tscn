@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://World/bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://world.gd" type="Script" id=11]
 [ext_resource path="res://Music and Sounds/8-bit-fantasy-adventure-music idle.wav" type="AudioStream" id=12]
 [ext_resource path="res://Enemies/Squeletton_mage/Squeleton_mage.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Player/hearth/hearth.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -695,3 +696,6 @@ position = Vector2( -43.4906, -215.924 )
 [node name="idlemusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -10.671
+
+[node name="hearth" parent="." instance=ExtResource( 14 )]
+position = Vector2( 217.915, 81.2065 )

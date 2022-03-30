@@ -16,8 +16,8 @@ texture = ExtResource( 1 )
 offset = Vector2( -8, -8 )
 
 [node name="hurtbox" parent="." instance=ExtResource( 3 )]
+position = Vector2( -0.148651, 0.148651 )
 collision_layer = 8
-hit = false
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( -8, -8 )
