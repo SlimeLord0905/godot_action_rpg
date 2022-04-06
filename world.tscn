@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://World/bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
@@ -13,8 +13,11 @@
 [ext_resource path="res://world.gd" type="Script" id=11]
 [ext_resource path="res://Music and Sounds/8-bit-fantasy-adventure-music idle.wav" type="AudioStream" id=12]
 [ext_resource path="res://Enemies/Squeletton_mage/Squeleton_mage.tscn" type="PackedScene" id=13]
+[ext_resource path="res://World/cactus(1).tscn" type="PackedScene" id=14]
+[ext_resource path="res://World/cactus.tscn" type="PackedScene" id=15]
 
 [sub_resource type="TileSet" id=1]
+resource_local_to_scene = true
 0/name = "DirtTileset.png 0"
 0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
@@ -662,6 +665,12 @@ position = Vector2( -71.0036, 15.8328 )
 [node name="grass19" parent="YSort/grass" instance=ExtResource( 7 )]
 position = Vector2( -71.2396, 34.0024 )
 
+[node name="StaticBody2D" parent="YSort/grass" instance=ExtResource( 14 )]
+position = Vector2( 172.163, 36.0217 )
+
+[node name="StaticBody2D2" parent="YSort/grass" instance=ExtResource( 15 )]
+position = Vector2( 240.831, 79.8053 )
+
 [node name="bat" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 78.4007, 119.414 )
 
@@ -688,4 +697,4 @@ stream = ExtResource( 12 )
 volume_db = -10.671
 
 [node name="Squeleton_mage" parent="." instance=ExtResource( 13 )]
-position = Vector2( 265.154, 95.2092 )
+position = Vector2( 423.014, 121.166 )
