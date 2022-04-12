@@ -511,7 +511,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 script = ExtResource( 11 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 0.933659, 12.5419 )
+position = Vector2( -7.8858, 27.6609 )
 scale = Vector2( 1.0125, 1.02778 )
 texture = ExtResource( 3 )
 region_enabled = true
@@ -550,9 +550,6 @@ position = Vector2( 176, 72 )
 remote_path = NodePath("../../../Camera2D")
 
 [node name="bush" type="YSort" parent="YSort"]
-
-[node name="bush7" parent="YSort/bush" instance=ExtResource( 1 )]
-position = Vector2( -305.117, -141.833 )
 
 [node name="bush6" parent="YSort/bush" instance=ExtResource( 1 )]
 position = Vector2( -184.338, -75.0864 )
