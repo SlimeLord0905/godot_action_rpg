@@ -15,7 +15,7 @@ func _physics_process(delta):
 
 func _on_TextureButton_pressed():
 	$start.play()
-	get_tree().change_scene("res://world.tscn")
+	get_tree().change_scene("res://World/difficulty_screen.tscn")
 	
 
 

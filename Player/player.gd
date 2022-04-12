@@ -24,6 +24,7 @@ onready var animation_state = animation_tree.get("parameters/playback")
 onready var swordhitbox = $itboxpivot/sword_hitbox
 onready var hurtbox = $hurtbox
 onready var BTimer = $BTimer
+onready var HealthTimer = $HealthTimer
 
 
 func _ready():
@@ -48,7 +49,9 @@ func move_state(delta):
 	input_vector.x = Input. get_action_strength("ui_right") - Input. get_action_strength("ui_left")
 	input_vector.y = Input. get_action_strength("ui_down") - Input. get_action_strength("ui_up") 
 	input_vector = input_vector.normalized()
-	
+	if HealthTimer.is_stopped() and stats.health < stats.max_health and global.gamemode == 3:
+		stats.health += 1
+		HealthTimer.start()
 	if input_vector != Vector2.ZERO:
 		roll_vector = input_vector
 		swordhitbox.knockback_vector = input_vector
@@ -75,12 +78,17 @@ func move_state(delta):
 		attaque_bouleDeFeu()
 
 func roll_state(delta):
-	
+	if HealthTimer.is_stopped()and stats.health < stats.max_health and global.gamemode == 3:
+		stats.health += 1
+		HealthTimer.start()
 	velocity = roll_vector*ROLL_SPEED
 	animation_state.travel("roll")
 	move()
 	
 func attack_state(delta):
+	if HealthTimer.is_stopped() and stats.health < stats.max_health and global.gamemode == 3:
+		stats.health += 1
+		HealthTimer.start()
 	velocity = Vector2.ZERO
 	animation_state.travel("attack")
 	
@@ -103,6 +111,7 @@ func attaque_bouleDeFeu():
 		
 		var Brotation = self.global_position.direction_to(get_global_mouse_position()).angle() 
 		boule.rotation = Brotation
+		stats.signal_timer()
 		BTimer.start()
 
 func _on_hurtbox_area_entered(area):
@@ -114,3 +123,8 @@ func mourir():
 	get_tree().reload_current_scene()
 	stats.health = 4;
 	get_tree().change_scene("res://World/Game_over_screen.tscn")
+
+
+func _on_Area2D_area_entered(area):
+	if stats.health < stats.max_health:
+		stats.health += 1

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const EnemiedeathEffect = preload("res://Effects/EnemieDeathEffect.tscn")
 export (PackedScene) var boule_de_feu: PackedScene= preload("res://hitbox_and_hurtbox/boule de feu_enemie.tscn")
-
+export (PackedScene) var hearth: PackedScene= preload("res://Player/hearth/hearth.tscn")
 export var ACCELERATION = 300
 export var MAX_SPEED = 40
 export var FRICTION = 200 
@@ -25,6 +25,7 @@ onready var animation_player = $Sprite/AnimationPlayer
 onready var animation_tree = $Sprite/AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var BTimer = $BTimer
+onready var collision_box = $CollisionShape2D2
 
 
 
@@ -90,9 +91,16 @@ func _physics_process(delta):
 			if player == null:
 				state = IDLE
 		DEAD:
-		
+			collision_box.disabled = true
 			animation_state.travel("mort")
 			velocity = Vector2.ZERO
+			var rng = RandomNumberGenerator.new()
+			rng.randomize()
+			var random_number = rng.randf_range(-10.0, 10.0)
+			if random_number > 0 and global.gamemode == 2:
+				var hearth_health = hearth.instance()
+				get_tree().current_scene.add_child(hearth_health)
+				hearth_health.global_position = self.global_position
 	velocity = move_and_slide(velocity)	
 		
 func seek_player():

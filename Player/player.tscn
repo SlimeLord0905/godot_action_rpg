@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -613,6 +613,10 @@ height = 13.1548
 radius = 6.6724
 height = 5.35572
 
+[sub_resource type="CapsuleShape2D" id=48]
+radius = 5.70342
+height = 10.1215
+
 [node name="player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 1 )
@@ -624,6 +628,7 @@ hframes = 60
 frame = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -0.205406, -0.0180387 )
 rotation = -1.5708
 shape = SubResource( 1 )
@@ -685,7 +690,20 @@ one_shot = true
 
 [node name="evade" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -1.12246, -7.57662 )
+shape = SubResource( 48 )
+
+[node name="HealthTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 
 [editable path="itboxpivot/sword_hitbox"]
 

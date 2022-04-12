@@ -21,6 +21,7 @@ run/main_scene="res://World/Title_screen.tscn"
 [autoload]
 
 PlayerStats="*res://Player/player_stats.tscn"
+global="*res://global.gd"
 
 [display]
 
