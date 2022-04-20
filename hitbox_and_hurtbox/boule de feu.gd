@@ -4,7 +4,7 @@ var knockback_vector = Vector2.ZERO
 
 export var damage = 1 
 
-export (int) var speed: int = 100
+export (int) var speed: int = 150
 
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
